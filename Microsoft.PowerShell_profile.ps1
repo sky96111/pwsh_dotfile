@@ -12,11 +12,6 @@ function update {
     Update-Module -Force
 }
 
-function status {
-    Write-Host 当前环境变量：`nHTTP_PROXY = $ENV:HTTP_PROXY
-    Write-Host HTTPS_PROXY = $ENV:HTTPS_PROXY
-}
-
 function proxy {
     param(
         [ValidateSet('1', '0')]
@@ -36,7 +31,8 @@ function proxy {
             $ENV:HTTPS_PROXY = $proxy
         }
     }
-    status
+    Write-Host 当前环境变量：`nHTTP_PROXY = $ENV:HTTP_PROXY
+    Write-Host HTTPS_PROXY = $ENV:HTTPS_PROXY
 }
 
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
